@@ -31,7 +31,7 @@ const ProductsList = () => {
     return (
         <>
             {products.map((prod) => (
-                <div className="col-xs-12 col-sm-6 col-md-6 col-lg-3 mr-4 d-flex align-items-stretch">
+                <div className="col-xs-12 col-sm-6 col-md-6 col-lg-3 mr-4 mb-4 d-flex align-items-stretch">
                     <div key={prod.id} className="card shadow-sm">
                         <img
                             src={prod.url}
@@ -40,6 +40,7 @@ const ProductsList = () => {
                         />
                         <div className="card-body">
                             <h1 className="lead">{prod.name}</h1>
+
                             <p className="card-text">${prod.desc}</p>
                         </div>
 
