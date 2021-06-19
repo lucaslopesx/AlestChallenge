@@ -23,7 +23,7 @@ const ProductsList = () => {
     const products = AddProduct();
 
     const deleteProd = async (id) => {
-        if (window.confirm("are you sure you want to delete this link?")) {
+        if (window.confirm("Tem certeza que deseja deletar esse produto?")) {
             await fire.firestore().collection("products").doc(id).delete();
         }
     };
