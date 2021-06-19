@@ -1,7 +1,7 @@
-import ProductForm from "./components/ProductForm";
-import ProductsList from "./components/Product";
+import ProductForm from "./components/ProductForm.jsx";
+import ProductsList from "./components/Product.jsx";
 
-import firebase from "./firebase";
+//import firebase from "./firebase";
 
 function App() {
     return (

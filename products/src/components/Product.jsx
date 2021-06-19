@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { fire } from "../firebase";
 
-function Product() {
-    const [products, setProducts] = useState({});
+function AddProduct() {
+    const [products, setProducts] = useState([]);
 
     useEffect(() => {
         fire.firestore()
@@ -12,7 +12,6 @@ function Product() {
                     id: doc.id,
                     ...doc.data(),
                 }));
-
                 setProducts(newProducts);
             });
     }, []);
@@ -20,16 +19,16 @@ function Product() {
     return products;
 }
 const ProductsList = () => {
-    const products = Product();
+    const products = AddProduct();
 
     return (
-        <div>
-            <div>
+        <div className="container">
+            <div className="row">
                 {products.map((prod) => (
-                    <div key={prod.id}>
+                    <div key={prod.id} className="col-md-4">
                         <h1>{prod.name}</h1>
                         <p>{prod.desc}</p>
-                        <p>{prod.url}</p>
+                        <img src={prod.url} alt="" />
                     </div>
                 ))}
             </div>
