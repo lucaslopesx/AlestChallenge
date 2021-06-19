@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { fire } from "../firebase";
+import { database, fire } from "../firebase";
 
 function AddProduct() {
     const [products, setProducts] = useState([]);
@@ -18,8 +18,15 @@ function AddProduct() {
 
     return products;
 }
+
 const ProductsList = () => {
     const products = AddProduct();
+
+    const deleteProd = async (id) => {
+        if (window.confirm("are you sure you want to delete this link?")) {
+            await fire.firestore().collection("products").doc(id).delete();
+        }
+    };
 
     return (
         <div className="container">
@@ -29,6 +36,7 @@ const ProductsList = () => {
                         <h1>{prod.name}</h1>
                         <p>{prod.desc}</p>
                         <img src={prod.url} alt="" />
+                        <button onClick={() => deleteProd(prod.id)}></button>
                     </div>
                 ))}
             </div>
