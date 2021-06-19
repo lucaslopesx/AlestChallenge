@@ -7,7 +7,11 @@ function App() {
     return (
         <div>
             <ProductForm />
-            <ProductsList />
+            <div className="container">
+                <div className="row">
+                    <ProductsList />
+                </div>
+            </div>
         </div>
     );
 }
